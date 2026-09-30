@@ -1,0 +1,21 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Segredos / configs locais (contêm a connection string do Neon)
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# Logs de comandos usados durante o aprendizado
+*_output.txt
