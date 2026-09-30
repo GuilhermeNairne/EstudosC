@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoFinanceiro.Data;
 using ProjetoFinanceiro.Services.Painel;
+using ProjetoFinanceiro.Services.Categoria;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddOpenApi();
 
 // Add services to the container.
 
@@ -13,10 +13,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<IPainelService, PainelService>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 
 var app = builder.Build();
-app.MapOpenApi();
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

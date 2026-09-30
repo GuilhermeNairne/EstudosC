@@ -37,8 +37,8 @@ namespace ProjetoFinanceiro.Controllers
             return Ok(painel);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<PainelRespondeDto>> UpdateAsync(Guid id, CreatePainelDto dto)
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<PainelRespondeDto>> UpdateAsync(Guid id, UpdatePainelDto dto)
         {
             var painel = await _painelService.UpdateAsync(id, dto);
             if (painel is null) return NotFound();

@@ -58,21 +58,21 @@ namespace ProjetoFinanceiro.Services.Painel
 
         }
 
-        public async Task<PainelRespondeDto?> UpdateAsync(Guid id, CreatePainelDto dto)
+        public async Task<PainelRespondeDto?> UpdateAsync(Guid id, UpdatePainelDto dto)
         {
             var painel = await _context.Paineis.FindAsync(id);
             if (painel is null) return null;
 
-            painel.Nome = dto.Nome;
-            painel.Valor = dto.Valor;
+            if (dto.Nome is not null) painel.Nome = dto.Nome;
+            if (dto.Valor is not null) painel.Valor = dto.Valor.Value;
 
             await _context.SaveChangesAsync();
 
             return new PainelRespondeDto
             {
                 Id = painel.Id,
-                Nome = dto.Nome,
-                Valor = dto.Valor,
+                Nome = painel.Nome,
+                Valor = painel.Valor,
             };
         }
 

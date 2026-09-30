@@ -10,7 +10,7 @@ namespace ProjetoFinanceiro.Services.Painel
         Task<List<PainelRespondeDto>> GetAllSync();
         Task<PainelRespondeDto?> GetByIdAsync(Guid id);
         Task<PainelRespondeDto> CreateAsync(CreatePainelDto dto);
-        Task<PainelRespondeDto> UpdateAsync(Guid id, CreatePainelDto dto);
+        Task<PainelRespondeDto?> UpdateAsync(Guid id, UpdatePainelDto dto);
         Task<bool> DeleteAsync(Guid Id);
 
     }
